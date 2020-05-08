@@ -1,0 +1,12 @@
+name = "Cyberton"
+license = "EUPL-1.2"
+licenselink = "https://github.com/jozefsukovsky/hugo-cyberton/blob/master/LICENSE"
+description = "Simple Hugo Theme"
+homepage = "https://github.com/jozefsukovsky/hugo-cyberton"
+tags = ["responsive","minimal","clean","business","company","bootstrap","zerostatic","personal","google analytics"]
+features = ["services","team","about","contact"]
+min_version = 0.69
+
+[author]
+  name = "Jozef Sukovsky"
+  homepage = "https://sukovsky.com"
