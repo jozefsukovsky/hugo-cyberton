@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+	{{ partial "head.html" . }}
+	<body>
+    {{ partial "header.html" . }}
+    <main>
+    <div id="content">
+    
+    <article>
+        <header>
+            <time datetime="{{ .Date }}">{{ dateFormat "02 Jan 06 15:04 MST" .Date.UTC }}</time>
+            <h2><a href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}<sup>DRAFT</sup>{{ end }}</a></h2>
+        </header>
+        <section>
+        {{ .Content }}
+        </section>
+    </article>
+   
+    </div>
+    </main>
+    {{ partial "footer.html" . }}
+	</body>
+</html>
