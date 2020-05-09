@@ -1,5 +1,19 @@
 <header>
 <div class="header">
-    header
+    <h1 class="site-title"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
+    <div class="site-copy">
+        {{- if isset .Site.Params "subtitle" -}}
+		<p>{{ .Site.Params.Subtitle | markdownify }}</p>
+		{{- end -}}
+    </div>
+    <nav>
+        <ul>
+            {{ range .Site.Menus.main }}
+			<li>
+				<a href="{{ .URL }}">{{ .Name }}</a>
+			</li>
+			{{ end }}
+        </ul>
+    </nav>
 </div>
 </header>
