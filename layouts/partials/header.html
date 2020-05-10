@@ -1,12 +1,14 @@
 <header>
-<div class="header">
+<div id="header" class="container">
     <h1 class="site-title"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
     <div class="site-copy">
         {{- if isset .Site.Params "subtitle" -}}
 		<p>{{ .Site.Params.Subtitle | markdownify }}</p>
 		{{- end -}}
     </div>
-    <nav>
+    <input type="checkbox" id="res-nav">
+    <label for="res-nav"><div></div><div></div><div></div></label>
+    <nav id="main-nav">
         <ul>
             {{ range .Site.Menus.main }}
 			<li>
