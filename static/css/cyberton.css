@@ -65,7 +65,7 @@ a:hover {
     display: block;
     float: left;
     padding-left: 30px;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left: 60px;
 }
 
@@ -126,6 +126,26 @@ article time {
 .pagination .page-item.active {
     background: rgba(34, 105, 236, .1);
     border-radius: 3px;
+}
+
+.tags {
+    list-style-type: none;
+    padding: 0;
+}
+
+.tags li {
+    display: inline-block;
+}
+
+.tag-link {
+    background: rgba(34, 105, 236, .1);
+    border-radius: 3px;
+    padding: 4px;
+}
+
+.tag-link:hover {
+    text-decoration: none;
+    background: rgba(34, 105, 236, .2);
 }
 
 @media screen and (max-width: 768px) {
