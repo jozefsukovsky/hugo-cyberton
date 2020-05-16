@@ -6,6 +6,17 @@
 
 html, body {
     font-family: "Roboto", Arial, Helvetica, sans-serif;
+    color: #505050;
+    line-height: 1.5;
+}
+
+a {
+    color: rgb(34, 105, 236);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 .container {
@@ -14,10 +25,12 @@ html, body {
     margin-left: auto;
     margin-right: auto;
     clear: both;
+    overflow: auto;
 }
 
 #footer {
     text-align: right;
+    font-size: 0.9em;
 }
 
 .site-title {
@@ -59,22 +72,42 @@ html, body {
 #main-nav li {
     list-style-type: none;
     display: inline;
-    padding: 20px;
+    padding: 5px;
+    margin: 15px;
+    border-radius: 2px;
 }
 
-#main-nav a {
-    text-decoration: none;
-    color: rgb(81, 104, 236)
+.grad-divider {
+    background: linear-gradient(45deg, rgba(34, 193, 195, 1) 0%, rgba(255, 235, 63, 1) 100%);
+    width: 100%;
+    height: 1px;
+    margin-bottom: 10px;
 }
 
-#main-nav a:hover {
-    text-decoration: underline;
+article h2 {
+    margin-top: 0;
+}
+
+article time {
+    font-size: 0.8em;
+    background: rgba(255, 235, 63, .3);
+    border-radius: 2px;
+    padding: 3px;
 }
 
 @media screen and (max-width: 768px) {
 
     .branding {
         max-width: 50%;
+    }
+
+    .site-title {
+        line-height: 0.8;
+    }
+
+    .site-copy {
+        font-size: 0.8em;
+        line-height: 0.8;
     }
 
     #main-nav {
@@ -98,16 +131,15 @@ html, body {
         top: 30px;
         right: 20px;
         display: block;
-        border: 2px solid #000000;
         padding: 6px;
-        border-radius: 3px;
     }
 
     label[for="res-nav"] div {
         width: 20px;
         height: 3px;
-        background-color: #000000;
+        background: linear-gradient(30deg, rgba(255, 235, 63, 1), rgba(34, 193, 195, 1), #ab79d6 90%);
         margin: 4px 0;
+        transition: 0.3s;
     }
     
     #main-nav {
@@ -117,18 +149,48 @@ html, body {
         max-width: 100%;
         min-height: 100%;
         max-height: 100%;
-        background: rgb(34,193,195);
-        background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(255,235,63,1) 100%);
+        background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(255, 235, 63, 1) 100%);
         position: absolute;
         top: 0;
         left: 0;
+        opacity: 0;
     }
     
     #res-nav:checked ~ #main-nav {
         display: block;
+        opacity: 95%;
+        transition: 0.5s;
     }
     #res-nav:checked ~ label[for="res-nav"] {
         z-index: 1000;
+    }
+
+    #res-nav:checked ~ label[for="res-nav"] div {
+        background: #000000 !important;
+        transition: 0.3s;
+    }
+
+    #res-nav:checked ~ label[for="res-nav"] div:nth-child(1) {
+        transform: rotate(-45deg);
+        transition: 0.3s;
+        position: absolute;
+        margin: 11px 0;
+    }
+    #res-nav:checked ~ label[for="res-nav"] div:nth-child(2) {
+        opacity: 0;
+        transition: 0.2s;
+    }
+    #res-nav:checked ~ label[for="res-nav"] div:nth-child(3) {
+        transform: rotate(45deg);
+        transition: 0.3s;
+        position: absolute;
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    #main-nav li.active {
+        background: rgba(255, 235, 63, .3)
     }
 }
 
@@ -149,6 +211,6 @@ html, body {
 
 @media screen and (min-width: 1280px) {
     .container {
-        max-width: 1000px;
+        max-width: 900px;
     }
 }

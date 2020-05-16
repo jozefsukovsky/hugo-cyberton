@@ -14,7 +14,6 @@
                     <header>
                         <time datetime="{{ .Date }}">{{ dateFormat "02 Jan 06 15:04 MST" .Date.UTC }}</time>
                         <h2><a href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}<sup>DRAFT</sup>{{ end }}</a></h2>
-                        <details>
                             <summary>
                             {{ if isset .Params "description" }}
                                 {{ .Description }}
@@ -24,7 +23,6 @@
                                 {{ .RawContent }}
                             {{ end }}
                             </summary>
-                        </details>
                     </header>
                 </article>
             {{ end }}

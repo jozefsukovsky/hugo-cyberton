@@ -1,10 +1,11 @@
+<div class="grad-divider">
 <header>
 <div id="header" class="container">
     <div class="branding">
         <h1 class="site-title"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
         <div class="site-copy">
             {{- if isset .Site.Params "subtitle" -}}
-            <p>{{ .Site.Params.Subtitle | markdownify }}</p>
+            {{ .Site.Params.Subtitle | markdownify }}
             {{- end -}}
         </div>
     </div>
@@ -14,7 +15,7 @@
         <ul>
             {{ $currentPage := . }}
             {{ range .Site.Menus.main }}
-			<li{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} class="active"{{ end }}>
+			<li{{ if (eq $currentPage.URL .URL) }} class="active"{{ end }}>
 				<a href="{{ .URL }}">{{ .Name }}</a>
 			</li>
 			{{ end }}
