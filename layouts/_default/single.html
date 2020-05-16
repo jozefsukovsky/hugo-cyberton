@@ -14,14 +14,17 @@
         <section>
         {{ .Content }}
         </section>
+        {{ $tags := .GetTerms "tags" }}
+        {{ if gt (len $tags) 0 }}
         <section>
             <h3>Tags</h3>
             <ul class="tags">
-                {{ range (.GetTerms "tags") }}
+                {{ range $tags }}
                     <li><a class="tag-link" href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
             {{ end }}
             </ul>
         </section>
+        {{ end }}
     </article>
    
     </div>
