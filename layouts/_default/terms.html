@@ -12,12 +12,11 @@
             <h1><a href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}<sup>DRAFT</sup>{{ end }}</a></h1>
         </header>
         <section>
-            <div class="tag-cloud">
-                {{ $data := .Data }}
-                {{ range $key, $value := .Data.Terms.ByCount }}
-                <a href="{{ $.Site.LanguagePrefix | absURL }}{{ $data.Plural }}/{{ $value.Name | urlize }}/">{{ $value.Name }}<sup>{{ $value.Count }}</sup></a>
-                {{ end }}
-                </div>
+            <ul class="tags">
+            {{ range .Site.Taxonomies.tags }}
+            <li><a class="tag-link" href="{{ .Page.Permalink }}">{{ .Page.Title }} <sup>{{ .Count }}</sup></a></li>
+            {{ end }}
+            </ul>
         </section>
     </article>
    

@@ -8,7 +8,7 @@ description = "Simple and Lazy Hugo theme"
 homepage = "https://github.com/jozefsukovsky/hugo-cyberton"
 tags = []
 features = []
-min_version = "0.55.0"
+min_version = "0.65.0"
 
 [author]
   name = "Jozef Sukovsky"
