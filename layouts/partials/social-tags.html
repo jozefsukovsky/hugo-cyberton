@@ -6,6 +6,9 @@
     {{ else }}
         {{ $description = .Content }}
     {{ end }}
+    {{ if eq $description "" }}
+        {{ $description = .Site.Params.Subtitle }}
+    {{ end }}
     <meta name="twitter:card" content="{{ $description }}" />
     {{ range .Site.Params.social }}{{ if eq .name "Twitter" }}<meta name="twitter:creator" content="{{ .id }}"/>{{ end }}{{ end }}
     <meta property="og:url" content="{{ .Permalink }}" />
