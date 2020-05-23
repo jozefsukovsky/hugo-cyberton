@@ -3,9 +3,9 @@
 	{{ partial "head.html" . }}
 	<body>
     {{ partial "header.html" . }}
+     {{- block "main" . }}
     <main>
     <div id="content" class="container">
-    {{- block "main" . }}
         <section>
             {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
             {{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
@@ -28,9 +28,9 @@
             {{ end }}
             {{ template "partials/paginator.html" . }}
         </section>
-    {{- end }}
     </div>
     </main>
+    {{- end }}
     {{ partial "footer.html" . }}
 	</body>
 </html>
