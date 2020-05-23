@@ -1,13 +1,8 @@
-<!doctype html>
-<html>
-	{{ partial "head.html" . }}
-	<body>
-    {{ partial "header.html" . }}
+{{ define "main" }}
     <main>
     <div id="content" class="container">
-    {{- block "main" . }}
         <section>
-            {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+            {{ $pages := .Pages }}
             {{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
             {{ range $paginator.Pages }}
                 <article>
@@ -28,9 +23,6 @@
             {{ end }}
             {{ template "partials/paginator.html" . }}
         </section>
-    {{- end }}
     </div>
     </main>
-    {{ partial "footer.html" . }}
-	</body>
-</html>
+{{ end }}
