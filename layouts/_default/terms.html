@@ -8,7 +8,6 @@
     
     <article>
         <header>
-            <time datetime="{{ .Date }}">{{ dateFormat "02 Jan 06 15:04 MST" .Date.UTC }}</time>
             <h1><a href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}<sup>DRAFT</sup>{{ end }}</a></h1>
         </header>
         <section>
