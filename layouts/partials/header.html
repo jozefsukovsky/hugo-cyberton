@@ -4,21 +4,21 @@
     <div class="branding">
         <h1 class="site-title"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
         <div class="site-copy">
-            {{- if isset .Site.Params "subtitle" -}}
+            {{- if isset .Site.Params "subtitle" }}
             {{ .Site.Params.Subtitle | markdownify }}
-            {{- end -}}
+            {{ end -}}
         </div>
     </div>
     <input type="checkbox" id="res-nav">
     <label for="res-nav"><div></div><div></div><div></div></label>
     <nav id="main-nav">
         <ul>
-            {{ $currentPage := . }}
-            {{ range .Site.Menus.main }}
+            {{ $currentPage := . -}}
+            {{ range .Site.Menus.main -}}
             <li{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} class="active"{{ end }}>
 				<a href="{{ .URL }}">{{ .Name }}</a>
 			</li>
-			{{ end }}
+			{{ end -}}
         </ul>
     </nav>
 </div>

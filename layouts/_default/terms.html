@@ -8,9 +8,9 @@
         </header>
         <section>
             <ul class="tags">
-            {{ range .Site.Taxonomies.tags }}
+            {{ range .Site.Taxonomies.tags -}}
             <li><a class="tag-link" href="{{ .Page.Permalink }}">{{ .Page.Title }} <sup>{{ .Count }}</sup></a></li>
-            {{ end }}
+            {{ end -}}
             </ul>
         </section>
     </article>

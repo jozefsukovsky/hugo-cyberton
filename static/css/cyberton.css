@@ -248,6 +248,10 @@ article time {
     #main-nav li.active {
         background: rgba(34, 105, 236, .1)
     }
+    .half {
+        width: 50%;
+        float: left;
+    }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1023px) {
