@@ -55,7 +55,7 @@ a:hover {
 
 .branding {
     float: left;
-    padding-top: 15px;
+    padding-top: 20px;
 }
 
 h1 {
@@ -251,6 +251,13 @@ article time {
     .half {
         width: 50%;
         float: left;
+    }
+
+    .half:nth-child(1) article {
+        padding-right: 30px;
+    }
+    .half:nth-child(2) article {
+        padding-left: 30px;
     }
 }
 

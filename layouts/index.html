@@ -6,13 +6,9 @@
     {{ block "main" . -}}
     <main>
     <div id="content" class="container">
+        {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
         <section class="half">
-        TBD
-        </section>
-        <section class="half">
-            {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
-            {{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) -}}
-            {{ range $paginator.Pages -}}
+            {{ range first 3 $pages -}}
                 <article>
                     <header>
                         <time datetime="{{ .Date }}">{{ dateFormat "02 Jan 06 15:04 MST" .Date.UTC }}</time>
@@ -29,7 +25,26 @@
                     </header>
                 </article>
             {{ end -}}
-            {{ template "partials/paginator.html" . -}}
+        </section>
+        <section class="half">
+            
+            {{ range first 3 (after 3 $pages) -}}
+                <article>
+                    <header>
+                        <time datetime="{{ .Date }}">{{ dateFormat "02 Jan 06 15:04 MST" .Date.UTC }}</time>
+                        <h2><a href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}<sup>DRAFT</sup>{{ end }}</a></h2>
+                            <summary>
+                            {{ if isset .Params "description" -}}
+                                {{ .Description -}}
+                            {{ else if gt (len .RawContent) 160 -}}
+                                {{ slicestr .RawContent 0 160 -}}...
+                            {{ else -}}
+                                {{ .RawContent -}}
+                            {{ end -}}
+                            </summary>
+                    </header>
+                </article>
+            {{ end -}}
         </section>
     </div>
     </main>
