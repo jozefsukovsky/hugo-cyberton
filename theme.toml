@@ -6,8 +6,8 @@ license = "EUPL-1.2"
 licenselink = "https://github.com/jozefsukovsky/hugo-cyberton/blob/master/LICENSE"
 description = "Simple and Lazy Hugo theme"
 homepage = "https://github.com/jozefsukovsky/hugo-cyberton"
-tags = []
-features = []
+tags = ["blog", "personal"]
+features = ["minimalistic", "responsive"]
 min_version = "0.65.0"
 
 [author]
