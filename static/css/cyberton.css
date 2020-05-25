@@ -46,7 +46,6 @@ a:hover {
 
 .site-copy {
     font-size: 1em;
-    margin-top: 5px;
 }
 
 #res-nav {
@@ -164,6 +163,7 @@ article time {
     .site-copy {
         font-size: 0.8em;
         line-height: 0.8;
+        margin-top: 5px;
     }
 
     #main-nav {
@@ -267,6 +267,9 @@ article time {
     }
     .container {
         max-width: 700px;
+    }
+    .site-copy {
+        margin-top: 5px;
     }
 }
 
