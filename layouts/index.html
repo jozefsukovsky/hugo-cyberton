@@ -6,29 +6,18 @@
     {{ block "main" . -}}
     <main>
     <div id="content" class="container">
-        {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
         <section class="half">
-            {{ range first 3 $pages -}}
-                <article>
-                    <header>
-                        <time datetime="{{ .Date }}">{{ dateFormat "02 Jan 06 15:04 MST" .Date.UTC }}</time>
-                        <h2><a href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}<sup>DRAFT</sup>{{ end }}</a></h2>
-                            <summary>
-                            {{ if isset .Params "description" -}}
-                                {{ .Description -}}
-                            {{ else if gt (len .RawContent) 160 -}}
-                                {{ slicestr .RawContent 0 160 -}}...
-                            {{ else -}}
-                                {{ .RawContent -}}
-                            {{ end -}}
-                            </summary>
-                    </header>
-                </article>
-            {{ end -}}
+            <h2>{{ .Site.Params.IntroHeading }}</h2>
+            {{ if isset .Site.Params "introduction" }}
+            {{ range .Site.Params.Introduction }}
+                <p>{{ . | markdownify }}</p>
+            {{ end }}
+            {{ end }}
         </section>
         <section class="half">
-            
-            {{ range first 3 (after 3 $pages) -}}
+            <h2>Most Recent Posts</h2>
+            {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
+            {{ range first 2 $pages -}}
                 <article>
                     <header>
                         <time datetime="{{ .Date }}">{{ dateFormat "02 Jan 06 15:04 MST" .Date.UTC }}</time>
@@ -45,6 +34,7 @@
                     </header>
                 </article>
             {{ end -}}
+            {{ if gt (len $pages) 2 }}<a href="/posts">Check out all posts</a>{{ end }}
         </section>
     </div>
     </main>

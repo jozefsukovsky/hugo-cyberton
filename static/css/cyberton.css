@@ -253,10 +253,10 @@ article time {
         float: left;
     }
 
-    .half:nth-child(1) article {
+    .half:nth-child(1) section {
         padding-right: 30px;
     }
-    .half:nth-child(2) article {
+    .half:nth-child(2) section {
         padding-left: 30px;
     }
 }

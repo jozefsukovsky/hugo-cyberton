@@ -2,7 +2,8 @@
     {{ if isset .Params "description" -}}
         {{ $description = .Description -}}
     {{ else if gt (len .Content) 160 -}}
-        {{ $description = slicestr .Content 0 160 -}}...
+        {{ $description = slicestr .Content 0 160 -}}
+        {{ $description = printf "%s..." $description }}
     {{ else -}}
         {{ $description = .Content -}}
     {{ end -}}
