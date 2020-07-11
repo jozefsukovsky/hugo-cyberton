@@ -4,7 +4,7 @@
 name = "Cyberton"
 license = "EUPL-1.2"
 licenselink = "https://github.com/jozefsukovsky/hugo-cyberton/blob/master/LICENSE"
-description = "Simple and Lazy Hugo theme"
+description = "Minimal Hugo theme"
 homepage = "https://github.com/jozefsukovsky/hugo-cyberton"
 tags = ["blog", "personal"]
 features = ["minimalistic", "responsive"]
