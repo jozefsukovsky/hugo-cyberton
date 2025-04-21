@@ -165,6 +165,19 @@ table {
     margin: 1em 0;
 }
 
+.highlight {
+    overflow-x: auto;
+    max-width: 100%;
+    padding: 1em;
+    margin: 1em 0;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+
+.highlight pre {
+    margin: 0;
+}
+
 th, td {
     border: 1px solid rgb(80, 80, 80);
     padding: 8px;
@@ -174,6 +187,8 @@ th, td {
 th {
     background-color: rgba(34, 105, 236, .1);
 }
+
+
 
 @media screen and (max-width: 768px) {
 
