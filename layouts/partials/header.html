@@ -15,7 +15,7 @@
         <ul>
             {{ $currentPage := . -}}
             {{ range .Site.Menus.main -}}
-            <li{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} class="active"{{ end }}>
+            <li{{if or (eq $currentPage.Title .Name .) (or ($currentPage.IsMenuCurrent .Menu .) ($currentPage.HasMenuCurrent .Menu .)) }} class="active"{{ end }}>
 				<a href="{{ .URL }}">{{ .Name }}</a>
 			</li>
 			{{ end -}}

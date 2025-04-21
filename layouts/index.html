@@ -6,18 +6,10 @@
     {{ block "main" . -}}
     <main>
     <div id="content" class="container">
-        <section class="half">
-            <h2>{{ .Site.Params.IntroHeading }}</h2>
-            {{ if isset .Site.Params "introduction" }}
-            {{ range .Site.Params.Introduction }}
-                <p>{{ . | markdownify }}</p>
-            {{ end }}
-            {{ end }}
-        </section>
-        <section class="half">
+        <section>
             <h2>Most Recent Posts</h2>
             {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
-            {{ range first 2 $pages -}}
+            {{ range first 10 $pages -}}
                 <article>
                     <header>
                         <time datetime="{{ .Date }}">{{ dateFormat "02 Jan 06 15:04 MST" .Date.UTC }}</time>
