@@ -1,17 +1,14 @@
-    {{ $description := "" -}}
-    {{ if isset .Params "description" -}}
-        {{ $description = .Description -}}
-    {{ else if gt (len .Content) 160 -}}
-        {{ $description = slicestr .Content 0 160 -}}
-        {{ $description = printf "%s..." $description }}
-    {{ else -}}
-        {{ $description = .Content -}}
-    {{ end -}}
-    {{ if eq $description "" -}}
-        {{ $description = .Site.Params.Subtitle -}}
-    {{ end }}
-    <meta name="twitter:card" content="{{ $description }}" />
-    {{ range .Site.Params.social }}{{ if eq .name "Twitter" }}<meta name="twitter:creator" content="{{ .id }}"/>{{ end }}{{ end }}
-    <meta property="og:url" content="{{ .Permalink }}" />
-    <meta property="og:title" content="{{ .Title }}" />
-    <meta property="og:description" content="{{ $description }}" />
+{{ $description := "" -}} {{ if isset .Params "description" -}} {{ $description
+= .Description -}} {{ else if gt (len .Content) 160 -}} {{ $description =
+slicestr .Content 0 160 -}} {{ $description = printf "%s..." $description }} {{
+else -}} {{ $description = .Content -}} {{ end -}} {{ if eq $description "" -}}
+{{ $description = .Site.Params.Subtitle -}} {{ end }}
+<meta name="description" content="{{ $description }}" />
+<meta name="twitter:card" content="{{ $description }}" />
+{{ range .Site.Params.social }}{{ if eq .name "Twitter" }}<meta
+  name="twitter:creator"
+  content="{{ .id }}"
+/>{{ end }}{{ end }}
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:title" content="{{ .Title }}" />
+<meta property="og:description" content="{{ $description }}" />
