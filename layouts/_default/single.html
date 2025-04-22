@@ -1,28 +1,32 @@
 {{ define "main" }}
-    <main>
-    <div id="content" class="container">
-    
+<main>
+  <div id="content" class="container">
     <article>
-        <header>
-            {{ if eq .Section "posts" -}}<time datetime="{{ .Date }}">{{ dateFormat "02 Jan 06 15:04 MST" .Date.UTC }}</time>{{ end -}}
-            <h1><a href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}<sup>DRAFT</sup>{{ end }}</a></h1>
-        </header>
-        <section>
-        {{ .Content }}
-        </section>
-        {{ $tags := .GetTerms "tags" }}
-        {{ if gt (len $tags) 0 }}
-        <section>
-            <h3>Tags</h3>
-            <ul class="tags">
-                {{ range $tags }}
-                    <li><a class="tag-link" href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
-            {{ end }}
-            </ul>
-        </section>
-        {{ end }}
+      <header>
+        {{ if eq .Section "posts" -}}<time datetime="{{ .Date }}"
+          >{{ dateFormat "02 Jan 06 15:04 MST" .Date.UTC }}</time
+        >{{ end -}}
+        <h1>
+          <a href="{{ .RelPermalink }}"
+            >{{ .Title }}{{ if .Draft }}<sup>DRAFT</sup>{{ end }}</a
+          >
+        </h1>
+        <button id="copyLinkBtn">Copy link</button>
+      </header>
+      <section>{{ .Content }}</section>
+      {{ $tags := .GetTerms "tags" }} {{ if gt (len $tags) 0 }}
+      <section>
+        <h3>Tags</h3>
+        <ul class="tags">
+          {{ range $tags }}
+          <li>
+            <a class="tag-link" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </section>
+      {{ end }}
     </article>
-   
-    </div>
-    </main>
+  </div>
+</main>
 {{ end }}

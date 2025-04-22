@@ -1,36 +1,37 @@
-<!doctype html>
-<html>
-	{{ partial "head.html" . -}}
-	<body>
-    {{ partial "header.html" . -}}
-    {{ block "main" . -}}
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  {{ partial "head.html" . -}}
+  <body>
+    {{ partial "header.html" . -}} {{ block "main" . -}}
     <main>
-    <div id="content" class="container">
+      <div id="content" class="container">
         <section>
-            <h2>Most Recent Posts</h2>
-            {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
-            {{ range first 10 $pages -}}
-                <article>
-                    <header>
-                        <time datetime="{{ .Date }}">{{ dateFormat "02 Jan 06 15:04 MST" .Date.UTC }}</time>
-                        <h2><a href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}<sup>DRAFT</sup>{{ end }}</a></h2>
-                            <summary>
-                            {{ if isset .Params "description" -}}
-                                {{ .Description -}}
-                            {{ else if gt (len .RawContent) 160 -}}
-                                {{ slicestr .RawContent 0 160 -}}...
-                            {{ else -}}
-                                {{ .RawContent -}}
-                            {{ end -}}
-                            </summary>
-                    </header>
-                </article>
-            {{ end -}}
-            {{ if gt (len $pages) 2 }}<a href="/posts">Check out all posts</a>{{ end }}
+          <h2>Most Recent Posts</h2>
+          {{ $pages := where .Site.RegularPages "Type" "in"
+          .Site.Params.mainSections -}} {{ range first 10 $pages -}}
+          <article>
+            <header>
+              <time datetime="{{ .Date }}"
+                >{{ dateFormat "02 Jan 06 15:04 MST" .Date.UTC }}</time
+              >
+              <h2>
+                <a href="{{ .RelPermalink }}"
+                  >{{ .Title }}{{ if .Draft }}<sup>DRAFT</sup>{{ end }}</a
+                >
+              </h2>
+              <summary>
+                {{ if isset .Params "description" -}} {{ .Description -}} {{
+                else if gt (len .RawContent) 160 -}} {{ slicestr .RawContent 0
+                160 -}}... {{ else -}} {{ .RawContent -}} {{ end -}}
+              </summary>
+            </header>
+          </article>
+          {{ end -}} {{ if gt (len $pages) 2 }}<a href="/posts"
+            >Check out all posts</a
+          >{{ end }}
         </section>
-    </div>
+      </div>
     </main>
-    {{ end -}}
-    {{ partial "footer.html" . -}}
-	</body>
+    {{ end -}} {{ partial "footer.html" . -}}
+  </body>
 </html>
