@@ -15,6 +15,6 @@ else -}} {{ $description = .Content -}} {{ end -}} {{ if eq $description "" -}}
 {{ if .Params.author }}
 <meta property="article:author" content="{{ .Params.author }}" />
 <meta name="author" content="{{ .Params.author }}" />
-{{ end }} {{ if .Params.tags }} {{ range .Params.tags }}
+{{ end }} {{- if .Params.tags -}} {{- range .Params.tags -}}
 <meta property="article:tag" content="{{ . }}" />
-{{ end }} {{ end }}
+{{- end -}} {{- end -}}

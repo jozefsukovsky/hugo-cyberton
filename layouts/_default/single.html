@@ -11,9 +11,9 @@
             >{{ .Title }}{{ if .Draft }}<sup>DRAFT</sup>{{ end }}</a
           >
         </h1>
-        {{ if .Params.author }}
+        {{- if .Params.author -}}
         <address>By <span rel="author">{{ .Params.author }}</span></address>
-        {{ end }}
+        {{- end -}}
       </header>
       <section>{{ .Content }}</section>
       {{ $tags := .GetTerms "tags" }} {{ if gt (len $tags) 0 }}
