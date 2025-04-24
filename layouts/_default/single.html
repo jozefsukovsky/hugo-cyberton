@@ -11,7 +11,9 @@
             >{{ .Title }}{{ if .Draft }}<sup>DRAFT</sup>{{ end }}</a
           >
         </h1>
-        <button id="copyLinkBtn">Copy link</button>
+        {{ if .Params.author }}
+        <address>By <span rel="author">{{ .Params.author }}</span></address>
+        {{ end }}
       </header>
       <section>{{ .Content }}</section>
       {{ $tags := .GetTerms "tags" }} {{ if gt (len $tags) 0 }}
